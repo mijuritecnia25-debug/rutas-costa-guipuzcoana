@@ -1,61 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Primera Página Web</title>
-    <style>
-        /* Aquí va el código CSS (estilos) */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        .container {
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rutas de senderismo costero — Gipuzkoa</title>
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa3b2;--accent:#38bdf8}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:linear-gradient(180deg,#071023 0%,var(--bg) 100%);color:#e6eef6}
+    header{padding:28px 20px;text-align:center}
+    .container{max-width:1100px;margin:0 auto;padding:0 18px 48px}
+    h1{margin:0;font-size:28px;line-height:1.05}
+    p.lead{color:var(--muted);margin-top:10px}
+    .controls{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:18px 0}
+    .search, .select{background:#0b1320;border:1px solid rgba(255,255,255,0.03);padding:10px 12px;border-radius:10px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);padding:16px;border-radius:14px;position:relative;overflow:hidden}
+    .card h2{margin:0 0 6px;font-size:18px}
+    .meta{font-size:13px;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+    .badge{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-weight:600;font-size:12px}
+    .desc{color:var(--muted);font-size:14px;line-height:1.4;margin-bottom:12px}
+    .links{display:flex;gap:10px;flex-wrap:wrap}
+    a.btn{display:inline-block;padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600;background:linear-gradient(90deg,var(--accent),#60a5fa);color:#042433}
+    details{background:rgba(255,255,255,0.01);padding:10px;border-radius:8px}
+    summary{cursor:pointer;font-weight:600}
+    footer{color:var(--muted);text-align:center;margin-top:28px;font-size:13px}
+    @media (min-width:900px){h1{font-size:34px}}
+  </style>
 </head>
 <body>
-
-    <header>
-        <h1>¡Bienvenido a mi sitio web!</h1>
-    </header>
-
+  <header>
     <div class="container">
-        <h2>Sección Principal</h2>
-        <p>Este es un párrafo de ejemplo en mi página HTML. Puedes editar este contenido para poner lo que necesites.</p>
-        
-        <p>El archivo `index.html` es típicamente el archivo de inicio o la página principal de un sitio web.</p>
-
-        <h3>Lista de Elementos</h3>
-        <ul>
-            <li>Elemento de lista 1</li>
-            <li>Elemento de lista 2</li>
-            <li>Elemento de lista 3</li>
-        </ul>
-
-        <a href="otra-pagina.html">Ir a otra página</a>
+      <h1>Rutas de senderismo costero — Gipuzkoa</h1>
+      <p class="lead">Selección de rutas de dificultad media ~4 horas con playas y acantilados. Haz clic en cada ruta para ver más detalles y enlaces útiles.</p>
+      <div class="controls">
+        <input class="search" id="q" placeholder="Buscar por nombre (ej. Flysch, Jaizkibel...)" />
+        <select id="filter" class="select">
+          <option value="all">Todas</option>
+          <option value="circular">Circulares</option>
+          <option value="lineal">Lineales</option>
+        </select>
+      </div>
     </div>
+  </header>
+
+  <main class="container">
+    <section class="grid" id="cards">
+      <!-- Card 1: Flysch Zumaia - Deba -->
+      <article class="card" data-type="lineal" data-title="Flysch">
+        <h2>GR-121 — Ruta del Flysch (Zumaia → Deba)</h2>
+        <div class="meta">
+          <span class="badge">Distancia: ~14 km</span>
+          <span class="badge">Duración: 4–5 h</span>
+          <span class="badge">Dificultad: Media</span>
+        </div>
+        <p class="desc">Tramo costero famoso por las formaciones de <em>flysch</em> en los acantilados (Itzurun, Sakoneta). Alterna senderos rocosos y playas salvajes; recorrido lineal, regreso posible en tren desde Deba.</p>
+        <details>
+          <summary>Ver más</summary>
+          <div style="margin-top:8px">
+            <p class="desc">Terreno: senderos rocosos y pistas. Recomendado calzado de suela adherente. Vistas espectaculares a capas fósiles y playas de arena.</p>
+            <p class="desc">Cómo volver: línea de tren Deba–Zumaia (consultar horarios locales).</p>
+            <div class="links">
+              <a class="btn" href="#" onclick="alert('Abrir pista GPS (Wikiloc)')">Track GPS</a>
+              <a class="btn" href="#" onclick="alert('Ficha turística de Zumaia')">Ficha turística</a>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <!-- Card 2: Jaizkibel Labetxu - Eretzin -->
+      <article class="card" data-type="circular" data-title="Jaizkibel">
+        <h2>Jaizkibel — Labetxu ↺ Eretzin (circular)</h2>
+        <div class="meta">
+          <span class="badge">Distancia: ~9.6 km</span>
+          <span class="badge">Duración: 3–4 h</span>
+          <span class="badge">Dificultad: Media</span>
+        </div>
+        <p class="desc">Ruta circular por los acantilados de Jaizkibel; descensos a calas y tramos con pendiente intensa. Paisajes rocosos multicolores y miradores sobre el mar.</p>
+        <details>
+          <summary>Ver más</summary>
+          <div style="margin-top:8px">
+            <p class="desc">Terreno: senderos con piedras, tramos con cuerdas y escalones. No siempre señalizada; es recomendable llevar mapa o track GPS.</p>
+            <p class="desc">Inicio: aparcamiento en km 9 de la GI-3440 (Lezo–Hondarribia).</p>
+            <div class="links">
+              <a class="btn" href="#" onclick="alert('Abrir pista GPS (Wikiloc)')">Track GPS</a>
+              <a class="btn" href="#" onclick="alert('Información local sobre Jaizkibel')">Info local</a>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <!-- Card 3: Donostia (Gros) - Pasai San Pedro -->
+      <article class="card" data-type="lineal" data-title="Donostia">
+        <h2>Donostia (Gros) → Pasai San Pedro</h2>
+        <div class="meta">
+          <span class="badge">Distancia: ~11 km</span>
+          <span class="badge">Duración: ~5 h</span>
+          <span class="badge">Dificultad: Media</span>
+        </div>
+        <p class="desc">Senda costera por Monte Ulia con miradores sobre playas de Donostia y los acantilados de la ría de Pasajes. Final en Pasai San Pedro (posible retorno en barco o tren).</p>
+        <details>
+          <summary>Ver más</summary>
+          <div style="margin-top:8px">
+            <p class="desc">Terreno: senderos con escaleras y tramos de subida por el monte. Excelente para combinar con transporte público y visitas a Pasai Donibane.</p>
+            <div class="links">
+              <a class="btn" href="#" onclick="alert('Horarios barco/ferrocarril (local)')">Horarios</a>
+              <a class="btn" href="#" onclick="alert('Track GPS y mapa')">Track GPS</a>
+            </div>
+          </div>
+        </details>
+      </article>
+
+      <!-- Card 4: Donostia - Orio (Monte Igeldo) -->
+      <article class="card" data-type="lineal" data-title="Igeldo">
+        <h2>Donostia → Orio (Camino Costero / Monte Igeldo)</h2>
+        <div class="meta">
+          <span class="badge">Distancia: ~16 km</span>
+          <span class="badge">Duración: 5–6 h</span>
+          <span class="badge">Dificultad: Media</span>
+        </div>
+        <p class="desc">Travesía que combina bahías, praderas y miradores del monte Igeldo. Vistas amplias del Golfo de Bizkaia y acantilados costeros en altura.</p>
+        <details>
+          <summary>Ver más</summary>
+          <div style="margin-top:8px">
+            <p class="desc">Terreno: caminos de montaña y pistas agrícolas. Buena visibilidad de costa, recomendable llevar protección solar y agua suficiente.</p>
+            <div class="links">
+              <a class="btn" href="#" onclick="alert('Track GPS y guía')">Track GPS</a>
+              <a class="btn" href="#" onclick="alert('Consejos y logística')">Consejos</a>
+            </div>
+          </div>
+        </details>
+      </article>
+
+    </section>
 
     <footer>
-        <p>&copy; 2025 Mi Sitio Web. Todos los derechos reservados.</p>
+      <p>Nota: Duraciones y distancias son aproximadas. Consulta mapas y previsión meteorológica antes de salir.</p>
     </footer>
-    
-    <script>
-        // Aquí va el código JavaScript (funcionalidad)
-        console.log("La página se ha cargado correctamente.");
-    </script>
+  </main>
 
+  <script>
+    // Buscador y filtro simple
+    const q = document.getElementById('q');
+    const filter = document.getElementById('filter');
+    const cards = Array.from(document.querySelectorAll('.card'));
+
+    function applyFilter(){
+      const term = q.value.trim().toLowerCase();
+      const f = filter.value;
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const type = card.dataset.type;
+        const matchesTerm = term === '' || title.includes(term) || card.querySelector('h2').textContent.toLowerCase().includes(term);
+        const matchesFilter = f === 'all' || type === f;
+        card.style.display = (matchesTerm && matchesFilter) ? 'block' : 'none';
+      });
+    }
+
+    q.addEventListener('input', applyFilter);
+    filter.addEventListener('change', applyFilter);
+
+    // Mejora de accesibilidad: Allow Enter in search to focus first visible card details
+    q.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter'){
+        const first = cards.find(c=>c.style.display!=='none');
+        if(first) first.querySelector('details').open = true;
+      }
+    });
+  </script>
 </body>
 </html>
